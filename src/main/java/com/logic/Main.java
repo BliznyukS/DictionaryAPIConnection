@@ -8,7 +8,8 @@ public class Main {
     public static void main(String[] args) throws URISyntaxException, IOException {
 
         FileParser parser = new FileParser();
-        HashMap<String, Long> dictionaryHashMap = (HashMap<String, Long>) parser.parseKnownWordsFileHashMap("words/known.txt");
+        HashMap<String, Long> knownWords = (HashMap<String, Long>) parser.parseKnownWordsFile("words/known.txt");
+        System.out.println(knownWords.size());
 //
 //
 //

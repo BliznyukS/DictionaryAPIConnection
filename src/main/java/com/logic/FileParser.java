@@ -12,7 +12,7 @@ public class FileParser {
     public FileParser() {
     }
 
-    public Map<String, Long> parseKnownWordsFileHashMap(String filePath) throws URISyntaxException, IOException {
+    public Map<String, Long> parseKnownWordsFile(String filePath) throws URISyntaxException, IOException {
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
         if (classLoader == null) {
             classLoader = Class.class.getClassLoader();
