@@ -2,32 +2,23 @@ package com.logic;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws URISyntaxException, IOException {
 
-        FileParser parser = new FileParser();
-        HashMap<String, Long> knownWords = (HashMap<String, Long>) parser.parseKnownWordsFile("words/known.txt");
-        System.out.println(knownWords.size());
-//
-//
-//
-//        String currentWord = "case";
-//        Map<String, Long> knownWords = new HashMap<>();
-//        ResponseEntity<Object> responseEntity = restTemplate.getForEntity("https://api.dictionaryapi.dev/api/v2/entries/en/" + currentWord, Object.class);
-//    }
-//
-//    @AllArgsConstructor
-//
-//      Gson почитать
-//
-//    class Word {
-//        String word;
-//        String phonetic;
-//        ArrayList<Object> phonetics;
-//        String origin;
-//        ArrayList<Object> meanings;
-//    }
+        FreeDictionaryConnector freeDictionaryConnector = new FreeDictionaryRestApi();
+        var parser = new FileParser();
+        var knownWords = parser.parseKnownWordsFile("words/known.txt").keySet();
+        var words = new ArrayList<Word>();
+
+        knownWords.forEach(currentWordInLoop -> {
+            var result = freeDictionaryConnector.getWordDescription(currentWordInLoop);
+            words.addAll(result);
+        });
+
+        System.out.println(words.size());
     }
 }

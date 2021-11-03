@@ -19,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Words {
+public class Word {
     public String word;
     public String phonetic;
     public List<Phonetic> phonetics;
@@ -31,7 +31,7 @@ public class Words {
 @NoArgsConstructor
 @Getter
 @Setter
-class Phonetic{
+class Phonetic {
     public String text;
     public String audio;
 }
@@ -40,7 +40,7 @@ class Phonetic{
 @NoArgsConstructor
 @Getter
 @Setter
-class Definition{
+class Definition {
     public String definition;
     public String example;
     public List<String> synonyms;
@@ -51,7 +51,7 @@ class Definition{
 @NoArgsConstructor
 @Getter
 @Setter
-class Meaning{
+class Meaning {
     public String partOfSpeech;
     public List<Definition> definitions;
 }
