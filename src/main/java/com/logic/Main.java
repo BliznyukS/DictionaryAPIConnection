@@ -18,7 +18,6 @@ public class Main {
             words.addAll(result);
         });
 
-
         /**
          * Word,Phonetic,Meanings,Examples
          * hello,həˈləʊ,"exclamation - used as a greeting or to begin a phone conversation.
@@ -29,11 +28,8 @@ public class Main {
          *
          */
 
-
         File csvFile = CsvParser.formCsvFile(words);
 
-        System.out.println(csvFile.toString());
-
-        System.out.println(words.size());
+        System.out.println("Created file : " + csvFile + ", number of checked words - " + (words.size()+1));
     }
 }
